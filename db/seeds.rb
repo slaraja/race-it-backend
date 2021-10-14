@@ -5,6 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-response = RestClient.get("https://api.amp.active.com/v2/search?query=running&category=event&start_date=2013-07-04..&api_key=#{ENV["ACTIVE_KEY"]}")
+
+response = HTTParty.get("https://api.amp.active.com/v2/search?query=running&category=event&start_date=2013-07-04..&api_key=#{ENV["SECRET_KEY"]}")
+
 
 binding.pry
