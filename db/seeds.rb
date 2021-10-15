@@ -6,7 +6,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-response = HTTParty.get("https://api.amp.active.com/v2/search?query=running&category=event&start_date=2013-07-04..&api_key=#{ENV["SECRET_KEY"]}")
-
+response = HTTParty.get("https://www.runreg.com/api/search")
+races = JSON(response)["MatchingEvents"]
 
 binding.pry
