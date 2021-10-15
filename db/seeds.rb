@@ -6,11 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-response = HTTParty.get("https://www.runreg.com/api/search")
-races = response["MatchingEvents"]
+# response = HTTParty.get("https://www.runreg.com/api/search")
+# races = response["MatchingEvents"]
 
-races.each do |race|
-    # binding.pry
-    Race.create(name: race["EventName"], date: race["EventDate"], city: race["EventCity"], state: race["EventState"], zipcode: race["EventZip"])
-end
+# races.each do |race|
+#     # binding.pry
+#     Race.create(name: race["EventName"], date: race["EventDate"], city: race["EventCity"], state: race["EventState"], zipcode: race["EventZip"])
+# end
 
+Race.get_data
