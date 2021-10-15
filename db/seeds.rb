@@ -7,6 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 response = HTTParty.get("https://www.runreg.com/api/search")
-races = JSON(response)["MatchingEvents"]
+races = response["MatchingEvents"]
 
-binding.pry
+races.each do |race|
+    # binding.pry
+    Race.create(name: race["EventName"], date: race["EventDate"], city: race["EventCity"], state: race["EventState"], zipcode: race["EventZip"])
+end
+
