@@ -16,6 +16,11 @@ class RacesController < ApplicationController
         render json: race
     end
 
+    def update
+        race = Race.find(params:[:id])
+        race.update(race_params)
+    end
+
     def destroy
         race = Race.find(params:[id])
         race.destroy
