@@ -22,5 +22,10 @@ class RacesController < ApplicationController
         render json: {message: "#{race.name} was deleted."}
     end
 
+    private
+
+    def race_params
+        params.require(:race).permit(:name, :date, :state, :city, :zipcode) 
+    end
 
 end
