@@ -11,4 +11,16 @@ class RacesController < ApplicationController
         render json: race
     end
 
+    def create
+        race = Race.new(race_params)
+        render json: race
+    end
+
+    def destroy
+        race = Race.find(params:[id])
+        race.destroy
+        render json: {message: "#{race.name} was deleted."}
+    end
+
+
 end
