@@ -12,8 +12,12 @@ class RacesController < ApplicationController
     end
 
     def create
-        race = Race.new(race_params)
-        render json: race
+        race = Race.create(race_params)
+        if race
+            render json: race
+        else 
+            render json: {error: 'Race was not created.'}
+        end 
     end
 
     def update
